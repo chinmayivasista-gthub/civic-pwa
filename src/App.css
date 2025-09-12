@@ -1,0 +1,132 @@
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f9; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+}
+.App {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff; 
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #333;
+  font-weight: bold;
+}
+
+
+.buttons button {
+  margin: 10px 8px;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6c63ff, #3f3fff);
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+
+.complaint-form {
+  margin-top: 25px;
+  text-align: left;
+  border-radius: 10px;
+  background-color: #fefefe;
+  padding: 25px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.complaint-form:hover {
+  transform: translateY(-3px);
+}
+
+.complaint-form h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.complaint-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #555;
+}
+
+.complaint-form textarea {
+  width: 100%;
+  min-height: 100px;
+  margin: 8px 0 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #222;
+  background-color: #fafafa;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.complaint-form textarea:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px rgba(108,99,255,0.3);
+}
+
+.complaint-form button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #6c63ff;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.complaint-form button:hover {
+  background-color: #574fdb;
+  transform: translateY(-1px);
+}
+
+
+@media (max-width: 450px) {
+  .App {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .buttons button {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
