@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import ComplaintForm from './components/ComplaintForm'
+import { useState } from 'react';
+import './App.css';
+import ComplaintForm from './components/ComplaintForm';
 
 function App() {
-  const [complaintType, setComplaintType] = useState('')
+  const [complaintType, setComplaintType] = useState('');
 
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
 
       {complaintType && <ComplaintForm type={complaintType} />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
