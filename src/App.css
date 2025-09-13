@@ -1,4 +1,3 @@
-/* Reset global styles but DON'T center globally */
 body, html, #root {
   margin: 0;
   padding: 0;
@@ -6,24 +5,21 @@ body, html, #root {
   width: 100%;
   font-family: 'Arial', sans-serif;
   background-color: #f4f7f9;
-}
-
-/* Centering only for Home page content inside .App */
-.App {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
+}
+.App {
   text-align: center;
-  width: 100%;
-  max-width: 400px;
+  width: 95%;
+  max-width: 800px;
   background-color: #fff;
   border-radius: 12px;
   padding: 30px 20px;
-  margin: 0 auto;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin: 0 auto; /* Center container */
 }
+
 
 h1 {
   font-size: 2rem;
@@ -35,6 +31,7 @@ p {
   color: #333;
   font-weight: bold;
 }
+
 
 .buttons button {
   margin: 10px 8px;
@@ -53,6 +50,7 @@ p {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
+
 
 .complaint-form {
   margin-top: 25px;
@@ -120,6 +118,7 @@ p {
   transform: translateY(-1px);
 }
 
+
 @media (max-width: 450px) {
   .App {
     width: 90%;
@@ -132,13 +131,18 @@ p {
   }
 }
 
-/* TABLE STYLES */
+
 table {
   width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
   border-collapse: collapse;
-  margin: 20px 0;
   color: #000;
   text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 th, td {
