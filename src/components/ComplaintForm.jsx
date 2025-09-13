@@ -2,20 +2,29 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from "react-router-dom";
 
-function ComplaintForm({ type ,onSubmit }) {
+function ComplaintForm({ type, onSubmit }) {
   const [details, setDetails] = useState('');
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!details) {
-      toast.error("Please enter complaint details"); // Optional error toast
+      toast.error("Please enter complaint details");
       return;
     }
 
-    toast.success(`Complaint submitted:\nType: ${type}\nDetails: ${details}`,{
-      duration:5000,
-      position:"top-right",
-    });
+    toast.success(
+      <div>
+        <strong>Complaint submitted!</strong>
+        <p>Type: {type}</p>
+        <p>Details: {details}</p>
+      </div>,
+      {
+        duration: 5000,
+        position: "top-right",
+      }
+    );
+
     if (onSubmit) onSubmit(details);
     setDetails('');
   };
@@ -33,14 +42,16 @@ function ComplaintForm({ type ,onSubmit }) {
             required
           />
         </label>
-        <div style={{ display: "flex", gap: "160px", marginTop: "10px" }}>
-    <button type="submit">Submit</button>
 
-    <Link to="/reports">
-      <button type="button">My Reports</button>
-    </Link>
-  </div>
-      
+        {/* Buttons Row */}
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+          <button type="submit">Submit</button>
+
+          {/* Styled Link instead of nested button */}
+          <Link to="/reports" className="my-reports-link">
+            My Reports
+          </Link>
+        </div>
       </form>
     </div>
   );
