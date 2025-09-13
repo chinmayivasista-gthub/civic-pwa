@@ -1,60 +1,43 @@
-import { useState } from 'react';
-import { toast } from 'react-hot-toast';
+import React from "react";
 import { Link } from "react-router-dom";
 
-function ComplaintForm({ type, onSubmit }) {
-  const [details, setDetails] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!details) {
-      toast.error("Please enter complaint details");
-      return;
-    }
-
-    toast.success(
-      <div>
-        <strong>Complaint submitted!</strong>
-        <p>Type: {type}</p>
-        <p>Details: {details}</p>
-      </div>,
-      {
-        duration: 5000,
-        position: "top-right",
-      }
-    );
-
-    if (onSubmit) onSubmit(details);
-    setDetails('');
-  };
-
+function ReportsPage({ complaints }) {
   return (
-    <div className="complaint-form">
-      <h2>{type} Complaint Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Details:
-          <textarea
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-            placeholder={`Describe the ${type.toLowerCase()} issue`}
-            required
-          />
-        </label>
+    <div className="reportspage">   
+      <h2 className="reports-title">My Reports</h2>
+      
+      <Link to="/">
+        <button className="back-btn">Back to Home</button>
+      </Link>
 
-        {/* Buttons Row */}
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-          <button type="submit">Submit</button>
-
-          {/* Styled Link instead of nested button */}
-          <Link to="/reports" className="my-reports-link">
-            My Reports
-          </Link>
-        </div>
-      </form>
+      {complaints.length === 0 ? (
+        <p className="empty-text">No complaints submitted yet.</p>
+      ) : (
+        <table className="reports-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Type</th>
+              <th>Details</th>
+              <th>Status</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {complaints.map((c, index) => (
+              <tr key={index}>
+                <td style={{ textAlign: "center" }}>{index + 1}</td>
+                <td>{c.type}</td>
+                <td>{c.details}</td>
+                <td>{c.status}</td>
+                <td>{c.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
 
-export default ComplaintForm;
+export default ReportsPage;
