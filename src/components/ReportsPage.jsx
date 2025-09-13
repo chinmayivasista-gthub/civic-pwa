@@ -4,23 +4,24 @@ import { Link } from 'react-router-dom';
 function ReportsPage({ complaints }) {
   return (
     <div 
-      style={{ 
+      style={{
+        backgroundColor: "#fff", // remove grey background
+        width: "100%",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
         alignItems: "center",
-        minHeight: "100vh",
-        width: "100%",
-        padding: "20px",
-        backgroundColor: "#f4f7f9"
+        padding: "20px"
       }}
     >
-      <h2 style={{ marginBottom: "15px", textAlign: "center" }}>My Reports</h2>
+      <h2 style={{ marginBottom: "15px", textAlign: "center", color: "#222" }}>
+        My Reports
+      </h2>
 
       <Link to="/">
         <button 
-          style={{ 
-            marginBottom: "20px", 
+          style={{
+            marginBottom: "20px",
             backgroundColor: "#6c63ff",
             color: "white",
             padding: "10px 18px",
@@ -35,19 +36,17 @@ function ReportsPage({ complaints }) {
       </Link>
 
       {complaints.length === 0 ? (
-        <p style={{ fontWeight: "bold", textAlign: "center" }}>No complaints submitted yet.</p>
+        <p style={{ fontWeight: "bold", textAlign: "center" }}>
+          No complaints submitted yet.
+        </p>
       ) : (
-        <table 
-          style={{ 
+        <table
+          style={{
             width: "90%",
             maxWidth: "800px",
             borderCollapse: "collapse",
             marginTop: "10px",
-            textAlign: "center",
-            backgroundColor: "white",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-            borderRadius: "8px",
-            overflow: "hidden"
+            textAlign: "center"
           }}
         >
           <thead>
