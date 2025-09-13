@@ -7,12 +7,12 @@ function ReportsPage({ complaints }) {
       style={{ 
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         minHeight: "100vh",
         width: "100%",
         padding: "20px",
-        background: "none"
+        backgroundColor: "#f4f7f9"
       }}
     >
       <h2 style={{ marginBottom: "15px", textAlign: "center" }}>My Reports</h2>
@@ -21,12 +21,13 @@ function ReportsPage({ complaints }) {
         <button 
           style={{ 
             marginBottom: "20px", 
-            backgroundColor: "blue",
+            backgroundColor: "#6c63ff",
             color: "white",
             padding: "10px 18px",
             borderRadius: "6px",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            fontWeight: "bold"
           }}
         >
           Back to Home
@@ -34,7 +35,7 @@ function ReportsPage({ complaints }) {
       </Link>
 
       {complaints.length === 0 ? (
-        <p style={{ fontWeight: "bold" }}>No complaints submitted yet.</p>
+        <p style={{ fontWeight: "bold", textAlign: "center" }}>No complaints submitted yet.</p>
       ) : (
         <table 
           style={{ 
@@ -51,21 +52,21 @@ function ReportsPage({ complaints }) {
         >
           <thead>
             <tr style={{ backgroundColor: "#6c63ff", color: "white" }}>
-              <th style={{ border: "1px solid black", padding: "10px" }}>#</th>
-              <th style={{ border: "1px solid black", padding: "10px" }}>Type</th>
-              <th style={{ border: "1px solid black", padding: "10px" }}>Details</th>
-              <th style={{ border: "1px solid black", padding: "10px" }}>Status</th>
-              <th style={{ border: "1px solid black", padding: "10px" }}>Date & Time</th>
+              <th style={{ padding: "10px" }}>#</th>
+              <th style={{ padding: "10px" }}>Type</th>
+              <th style={{ padding: "10px" }}>Details</th>
+              <th style={{ padding: "10px" }}>Status</th>
+              <th style={{ padding: "10px" }}>Date & Time</th>
             </tr>
           </thead>
           <tbody>
             {complaints.map((c, index) => (
               <tr key={index}>
-                <td style={{ border: "1px solid black", padding: "8px" }}>{index + 1}</td>
-                <td style={{ border: "1px solid black", padding: "8px" }}>{c.type}</td>
-                <td style={{ border: "1px solid black", padding: "8px" }}>{c.details}</td>
-                <td style={{ border: "1px solid black", padding: "8px" }}>{c.status}</td>
-                <td style={{ border: "1px solid black", padding: "8px" }}>{c.date}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{index + 1}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{c.type}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{c.details}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{c.status}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{c.date}</td>
               </tr>
             ))}
           </tbody>
