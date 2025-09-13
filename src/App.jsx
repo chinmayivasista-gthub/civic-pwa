@@ -1,71 +1,40 @@
-import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import './App.css';
-import ComplaintForm from './components/ComplaintForm';
-import ReportsPage from './components/ReportsPage';
 
-function App() {
-  const [complaintType, setComplaintType] = useState('');
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./pages/Home"; 
+import ReportsPage from "./pages/ReportsPage"; 
 
-  const [complaints, setComplaints] = useState(() => {
-    const saved = localStorage.getItem("complaints");
-    return saved ? JSON.parse(saved) : [];
-  });
+function AppRoutes() {
+  const location = useLocation();
+  const isReports = location.pathname === "/reports";
 
-
-  return (
-    <Router>
-    <div className="App">
-      <h1>Civic Issues Reporting</h1>
+  if (isReports) {
+   
+    return (
       <Routes>
-          {/* Home / Complaint Form Page */}
-          <Route path="/" element={
-            <div>
-       <p>Select the type of complaint:</p>
+        <Route path="/" element={<Home />} />
+        <Route path="/reports" element={<ReportsPage complaints={[]} />} />
+        {}
+      </Routes>
+    );
+  }
 
-      <div className="buttons">
-        <button onClick={() => setComplaintType('Potholes')}>Potholes</button>
-        <button onClick={() => setComplaintType('Streetlights')}>Streetlights</button>
-        <button onClick={() => setComplaintType('Trash Bins')}>Overflowing Trash</button>
-      </div>
-
-      {complaintType && (
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <ComplaintForm 
-                    type={complaintType} 
-                    onSubmit={(details) => {
-                      const newComplaint = {
-                        type: complaintType,
-                        details,
-                        status: "Submitted",
-                        date: new Date().toLocaleString()
-                      };
-                      const updatedComplaints = [...complaints, newComplaint];
-                      setComplaints(updatedComplaints);
-                      localStorage.setItem("complaints", JSON.stringify(updatedComplaints));
-                    }}
-                  />
-
-                 
-                </div>
-              )}
-            </div>
-          }/>
-
-          {/* Reports Page */}
-          <Route path="/reports" element={
-            <ReportsPage complaints={complaints} />
-          }/>
-        </Routes>
-
-        <Toaster position="top-right" />
-      </div>
-    </Router> 
+ 
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/reports" element={<ReportsPage complaints={[]} />} />
+        {}
+      </Routes>
+    </div>
   );
 }
 
-export default App;
-
-
-
+export default function App() {
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
+}
