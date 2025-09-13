@@ -1,39 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Home from "./pages/Home"; 
-import ReportsPage from "./pages/ReportsPage"; 
+import { useState } from 'react';
+import './App.css';
+import ComplaintForm from './components/ComplaintForm';
 
-function AppRoutes() {
-  const location = useLocation();
-  const isReports = location.pathname === "/reports";
+function App() {
+  const [complaintType, setComplaintType] = useState('');
 
-  if (isReports) {
-  
-    return (
-      <div className="ReportsContainer">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/reports" element={<ReportsPage complaints={[]} />} />
-        </Routes>
-      </div>
-    );
-  }
-
- 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/reports" element={<ReportsPage complaints={[]} />} />
-      </Routes>
+      <h1>Civic Issues Reporting</h1>
+      <p>Select the type of complaint:</p>
+
+      <div className="buttons">
+        <button onClick={() => setComplaintType('Potholes')}>Potholes</button>
+        <button onClick={() => setComplaintType('Streetlights')}>Streetlights</button>
+        <button onClick={() => setComplaintType('Trash Bins')}>Overflowing Trash</button>
+      </div>
+
+      {complaintType && <ComplaintForm type={complaintType} />}
     </div>
   );
 }
 
-export default function App() {
-  return (
-    <Router>
-      <AppRoutes />
-    </Router>
-  );
-}
+export default App;
