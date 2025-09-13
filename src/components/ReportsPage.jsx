@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ReportsPage({ complaints }) {
   return (
     <div className="reportspage">   
-      <h2 className="reports-title">My Reports</h2>
+      <h2 className="reports-title" style="color:black">My Reports</h2>
       
       <Link to="/">
         <button className="back-btn">Back to Home</button>
