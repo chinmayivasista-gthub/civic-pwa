@@ -1,12 +1,31 @@
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { Link } from "react-router-dom";
 
-function ComplaintForm({ type }) {
+function ComplaintForm({ type, onSubmit }) {
   const [details, setDetails] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!details) return;
-    alert(`Complaint submitted:\nType: ${type}\nDetails: ${details}`);
+
+    if (!details) {
+      toast.error("Please enter complaint details");
+      return;
+    }
+
+    toast.success(
+      <div>
+        <strong>Complaint submitted!</strong>
+        <p>Type: {type}</p>
+        <p>Details: {details}</p>
+      </div>,
+      {
+        duration: 5000,
+        position: "top-right",
+      }
+    );
+
+    if (onSubmit) onSubmit(details);
     setDetails('');
   };
 
@@ -23,7 +42,16 @@ function ComplaintForm({ type }) {
             required
           />
         </label>
-        <button type="submit">Submit</button>
+
+        {/* Buttons Row */}
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+          <button type="submit">Submit</button>
+
+          {/* Styled Link instead of nested button */}
+          <Link to="/reports" className="my-reports-link">
+            My Reports
+          </Link>
+        </div>
       </form>
     </div>
   );
