@@ -1,23 +1,27 @@
-body, html, #root {
+body, html {
+  
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f7f9; 
+  background-color: #f4f7f9;
   display: flex;
-  justify-content: center; 
-  align-items: center;   
+  justify-content: center;
+  align-items: center;
 }
 .App {
   text-align: center;
-  width: 100%;
-  max-width: 400px;
-  background-color: #fff; 
+  width: 95%;
+  max-width: 800px;
+  background-color: #fff;
   border-radius: 12px;
   padding: 30px 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin: 0 auto; 
 }
+
+
 
 h1 {
   font-size: 2rem;
@@ -29,6 +33,7 @@ p {
   color: #333;
   font-weight: bold;
 }
+
 
 .buttons button {
   margin: 10px 8px;
@@ -47,6 +52,7 @@ p {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
+
 
 .complaint-form {
   margin-top: 25px;
@@ -114,6 +120,7 @@ p {
   transform: translateY(-1px);
 }
 
+
 @media (max-width: 450px) {
   .App {
     width: 90%;
@@ -124,21 +131,4 @@ p {
     width: 100%;
     margin: 8px 0;
   }
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  color:black;
-}
-
-th, td {
-  border: 1px solid #333;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color:blue;
 }
