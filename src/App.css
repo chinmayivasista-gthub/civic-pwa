@@ -1,4 +1,4 @@
-/* GENERAL LAYOUT */
+
 body, html, #root {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body, html, #root {
   align-items: center;
 }
 
-/* MAIN APP CONTAINER */
+
 .App {
   text-align: center;
   width: 100%;
@@ -22,7 +22,7 @@ body, html, #root {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* HEADINGS */
+
 h1 {
   font-size: 2rem;
   color: #222;
@@ -33,8 +33,6 @@ p {
   color: #333;
   font-weight: bold;
 }
-
-/* BUTTONS */
 .buttons button {
   margin: 10px 8px;
   padding: 12px 25px;
@@ -52,8 +50,6 @@ p {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
-
-/* COMPLAINT FORM */
 .complaint-form {
   margin-top: 25px;
   text-align: left;
@@ -119,8 +115,6 @@ p {
   background-color: #574fdb;
   transform: translateY(-1px);
 }
-
-/* RESPONSIVE DESIGN */
 @media (max-width: 450px) {
   .App {
     width: 90%;
@@ -132,8 +126,6 @@ p {
     margin: 8px 0;
   }
 }
-
-/* TABLE STYLING */
 table {
   width: 100%;
   border-collapse: collapse;
