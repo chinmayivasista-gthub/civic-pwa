@@ -196,11 +196,8 @@ p {
   z-index: 1;
 }
 
-/* .reports-table input[type="checkbox"] {
-  transform: scale(1.2);
-  cursor: pointer;
-} */
-.badge {
+
+/* .badge {
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 13px;
@@ -221,4 +218,57 @@ p {
 .inactive {
   background-color: #e0e0e0;
   color: #555;
+} */
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+/* .submitted {
+  background-color: #2196f3;
+  color: white;
+}
+
+.inprogress {
+  background-color: #ff9800;
+  color: white;
+}
+
+.resolved {
+  background-color: #4caf50;
+  color: white;
+} */
+
+/* Progress Bar Styles */
+.progress-bar {
+  width: 100px;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.submitted {
+  width: 33%;
+  background-color: #2196f3;
+}
+
+.progress-fill.inprogress {
+  width: 66%;
+  background-color: #ff9800;
+}
+
+.progress-fill.resolved {
+  width: 100%;
+  background-color: #4caf50;
 }
