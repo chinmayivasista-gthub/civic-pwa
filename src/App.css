@@ -1,5 +1,6 @@
+
 body, html {
-  
+  /* #root  */
   margin: 0;
   padding: 0;
   height: 100%;
@@ -18,7 +19,7 @@ body, html {
   border-radius: 12px;
   padding: 30px 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin: 0 auto; 
+  margin: 0 auto; /* Center container */
 }
 
 
@@ -132,9 +133,92 @@ p {
     margin: 8px 0;
   }
 }
-.reports-title{
-color:black;
+
+.image-upload-label {
+  display: block;
+  margin: 15px 0 10px;
+  font-weight: bold;
+  color: black;
 }
 
+.image-input {
+  margin-top: 8px;
+  display: block;
+}
 
+.image-preview img {
+  margin-top: 10px;
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  object-fit: cover;
 
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.my-reports-link {
+  padding: 10px 18px;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #6c63ff;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #6c63ff;
+  transition: all 0.3s ease;
+}
+
+.my-reports-link:hover {
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+.reports-container {
+  max-height: 400px; /* adjust height as needed */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.reports-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: rgb(69, 69, 139); /* same as your header color */
+  color: white;
+  z-index: 1;
+}
+
+/* .reports-table input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+} */
+.badge {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.resolved {
+  background-color: #4caf50;
+  color: white;
+}
+
+.inprogress {
+  background-color: #ff9800;
+  color: white;
+}
+
+.inactive {
+  background-color: #e0e0e0;
+  color: #555;
+}

@@ -36,10 +36,11 @@ function App() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <ComplaintForm 
                     type={complaintType} 
-                    onSubmit={(details) => {
+                    onSubmit={({details ,image}) => {
                       const newComplaint = {
                         type: complaintType,
                         details,
+                        image :image||null, //base64 string
                         status: "Submitted",
                         date: new Date().toLocaleString()
                       };
