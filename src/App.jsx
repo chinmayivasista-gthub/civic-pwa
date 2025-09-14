@@ -20,7 +20,7 @@ function App() {
       <Routes>
       
       
-          {/* Home / Complaint Form Page */}
+       
           <Route path="/" element={
             <div>
               <h1>Civic Issues Reporting</h1>
@@ -40,7 +40,7 @@ function App() {
                       const newComplaint = {
                         type: complaintType,
                         details,
-                        image :image||null, //base64 string
+                        image :image||null, 
                         status: "Submitted",
                         date: new Date().toLocaleString()
                       };
@@ -56,7 +56,7 @@ function App() {
             </div>
           }/>
 
-          {/* Reports Page */}
+         
           <Route path="/reports" element={
             <ReportsPage complaints={complaints} />
           }/>
